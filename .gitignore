@@ -1,0 +1,16 @@
+# Compiled class files
+*.class
+
+# IDE directories
+/.settings/
+/.project
+/.classpath
+/.vscode/
+/.idea/
+
+# Eclipse / STS specific files
+*.log
+
+# bin or target folder
+/bin/
+/target/

@@ -1,27 +1,110 @@
-# ☕ Coffee Shop Socket Demo (Java)
+# ☕ Java Coffee Socket Demo
 
-A simple and fun **TCP Client–Server application** built using Java’s **Blocking I/O (BIO)**.
+A fun and educational **Java networking project** demonstrating:
 
-The project simulates a coffee shop where:
-- The **Server** acts like a coffee shop
-- Each **Client** is a customer sending an order
-- A **Waiter Thread** serves each customer
+- Java **Blocking I/O (BIO)** sockets  
+- Java **Non-Blocking I/O (NIO)** with selectors  
+- A high-performance **Netty** server and client  
+
+The project simulates a small “coffee shop” where a client sends a coffee order, and the server replies with the prepared drink.  
+It’s designed as a progression from **BIO → NIO → Netty** so beginners can understand how networking evolves from simple to high-performance frameworks.
 
 ## 🚀 Features
-- Classic **ServerSocket / Socket** communication
-- **Multi-threaded server**
-- Simple text protocol
-- Clear console logs
-- Fully working Java I/O example
 
+### ✔ Java BIO Version  
+- Uses `ServerSocket` + `Socket`  
+- Blocking read/write  
+- One thread per client (classic approach)
 
-▶️ Running the Application
-1. Start `CoffeeShopServer.java`
-2. Start `CoffeeCustomer.java`
+### ✔ Java NIO Version  
+- Uses `Selector`, `ServerSocketChannel`, `SocketChannel`  
+- Non-blocking I/O  
+- Event-driven architecture  
+- Single-threaded high scalability
 
+### ✔ Netty Version  
+- Uses industry-standard networking framework  
+- EventLoopGroups + pipelines  
+- Automatic encoding/decoding  
+- Clean, simple handlers  
+- High-performance, production-grade networking
 
-## Java IO (Blocking) This is like a coffee shop with a single counter:
-1. When a thread reads from a stream (InputStream/Reader), it waits until the data is available.
-2. When it writes, it waits until the write finishes.
-3. Each client connection needs a dedicated thread.
-4. Not efficient when you have many clients because threads get stuck waiting
+## 📂 Project Structure
+
+```
+java-coffee-socket-demo/
+│
+├─ javaio/               → Blocking I/O version
+│   ├─ CoffeeShopServer.java
+│   └─ CoffeeCustomer.java
+│
+├─ javanio/              → Non-blocking NIO version
+│   ├─ NioCoffeeServer.java
+│   └─ NioCoffeeCustomer.java
+│
+├─ netty/                → Netty version (recommended)
+│   ├─ NettyCoffeeServer.java
+│   └─ NettyCoffeeCustomer.java
+│
+├─ lib/                  → Netty JAR (if plain Java project)
+│
+└─ README.md
+```
+
+## ▶️ Running the Project
+
+### **1. BIO Version**
+Start the server:
+```
+java javaio.CoffeeShopServer
+```
+
+Start the client:
+```
+java javaio.CoffeeCustomer
+```
+
+### **2. NIO Version**
+Start the server:
+```
+java javanio.NioCoffeeServer
+```
+
+Start the client:
+```
+java javanio.NioCoffeeCustomer
+```
+
+### **3. Netty Version (recommended)**
+Start the server:
+```
+java netty.NettyCoffeeServer
+```
+
+Start the client:
+```
+java netty.NettyCoffeeCustomer
+```
+
+## 📦 Dependencies
+
+If using plain Java project, place this JAR into `/lib` and add to Build Path:
+
+```
+netty-all-4.1.109.Final.jar
+```
+
+## 📘 Learning Goals
+
+This project helps you understand:
+
+- How sockets work in Java  
+- Blocking vs non-blocking I/O  
+- Selectors and events  
+- How Netty simplifies networking  
+- How real servers handle connections
+
+Perfect for beginners learning networking step-by-step.
+
+## ⭐ License
+Free to use and modify.

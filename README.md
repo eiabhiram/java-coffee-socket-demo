@@ -19,7 +19,8 @@ The project simulates a coffee shop where:
 1. Start `CoffeeShopServer.java`
 2. Start `CoffeeCustomer.java`
 
-   Java IO (Blocking) This is like a coffee shop with a single counter:
+
+## Java IO (Blocking) This is like a coffee shop with a single counter:
 1. When a thread reads from a stream (InputStream/Reader), it waits until the data is available.
 2. When it writes, it waits until the write finishes.
 3. Each client connection needs a dedicated thread.
